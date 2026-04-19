@@ -13,6 +13,9 @@
   
 【estimated_video】
   骨格線を描画した動画を出力
+
+【jidou_sokutei】
+  指定周回のラップタイムを超音波センサで計測する（arduino）
   
 【realtime】
   リアルタイムで推定
@@ -22,3 +25,6 @@
 
 【video_change】
   動画の解像度，FPSを操作する
+
+【wifi_test】
+  Arduino同士のWi-Fi接続テスト
