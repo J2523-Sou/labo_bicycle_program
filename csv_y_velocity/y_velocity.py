@@ -39,7 +39,9 @@ def process_video(file_path, min_detection_confidence=0.9, min_tracking_confiden
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
     mp_pose = mp.solutions.pose
-    pose = mp_pose.Pose(min_detection_confidence = min_detection_confidence, min_tracking_confidence = min_tracking_confidence)
+    pose = mp_pose.Pose(
+        min_detection_confidence = min_detection_confidence, 
+        min_tracking_confidence = min_tracking_confidence)
     mp_draw = mp.solutions.drawing_utils
 
     toe_data = []

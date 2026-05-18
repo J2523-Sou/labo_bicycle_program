@@ -13,8 +13,8 @@ mp_drawing_styles = mp.solutions.drawing_styles # 描画スタイル
 cap = cv2.VideoCapture(0) # 0はPCに接続されたデフォルトのカメラ
 
 # MediaPipe Poseモデルの初期化
-# model_complexity=1: モデルの複雑さ。1はバランスの取れた設定。
-# min_detection_confidence=0.5: 検出の確信度が50%以上の場合に検出とみなす。
+# model_complexity=0: 軽量モデル（リアルタイム処理向け）
+# min_detection_confidence=0.9: 検出の確信度が90%以上の場合に検出とみなす
 with mp_pose.Pose(
     static_image_mode=False,
     model_complexity=0,
@@ -79,11 +79,11 @@ with mp_pose.Pose(
             cv2.circle(image, (current_x_px, current_y_px), 8, (255, 0, 0), -1) 
             
             # 全身の骨格を描画
-            # mp_drawing.draw_landmarks(
-            #     image,
-            #     results.pose_landmarks,
-            #     mp_pose.POSE_CONNECTIONS, # 関節をつなぐ線
-            #     mp_drawing_styles.get_default_pose_landmarks_style()) # 描画スタイル
+            mp_drawing.draw_landmarks(
+                image,
+                results.pose_landmarks,
+                mp_pose.POSE_CONNECTIONS, # 関節をつなぐ線
+                mp_drawing_styles.get_default_pose_landmarks_style()) # 描画スタイル
 
         # --- 速度と加速度の計算 ---
         current_velocity = None

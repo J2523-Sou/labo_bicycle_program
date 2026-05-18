@@ -128,7 +128,7 @@ def select_files():
     stop_processing = False  # 新しいファイル選択時にリセット
     files = filedialog.askopenfilenames(
         title='動画ファイルを選択してください',
-        filetypes=[('MP4 files', '*.mp4'), ('All files', '*.*')]
+        filetypes=[('MOV files', '*.mov'), ('All files', '*.*')]
     )
     if not files:
         progress_label.config(text='ファイルが選択されませんでした')
@@ -325,6 +325,7 @@ def process_files(input_videos):
         with mp_pose.Pose(
             static_image_mode = False,
             model_complexity = model_complexity_var.get(),
+
             min_detection_confidence = min_detection_confidence_var.get(),
             min_tracking_confidence = min_tracking_confidence_var.get()) as pose:
 
