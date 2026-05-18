@@ -1,3 +1,22 @@
 .venv/
+.venv*/
+venv/
+env/
 __pycache__/
-*.pyc
+*.py[cod]
+
+.DS_Store
+.vscode/
+
+# Non-program artifacts
+*.csv
+*.fit
+*.log
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.mov
+*.avi
+*.exe
